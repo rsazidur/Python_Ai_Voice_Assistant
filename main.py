@@ -1,5 +1,6 @@
 import pyttsx3
 import datetime
+import speech_recognition as sr
 
 engine = pyttsx3.init("sapi5")
 
@@ -26,7 +27,26 @@ def wish_me():
 
     speck("Tell me how can i help you?")
 
+def take_command():
+    """
+    take microphone input from the user and return string
+    """
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        r.pause_threshold = 1.5   # seconds of non-speaking audio before a phrase is considered complete.
+        audio = r.listen(source)
+    try:
+        print("Recognizing...")
+        query = r.recognize_google(audio, language='en-in')
+        print(f"User said... {query} \n")
+    except Exception as e:
+        print(f"Sorry {author}, say that again...")
+        return "None"
+    return query
+
 
 if __name__ == "__main__":
     # speck(f"Welcome {author}, I am Dante.")
-    wish_me()
+    # wish_me()
+    take_command()
