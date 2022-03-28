@@ -16,4 +16,4 @@ def speck(audio):
 
 
 if __name__ == "__main__":
-    speck(f"Welcome {author}, I am Dante and supto is a motherfucker. he wants to fuck girls but cant")
+    speck(f"Welcome {author}, I am Dante.")
