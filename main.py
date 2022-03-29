@@ -59,4 +59,7 @@ if __name__ == "__main__":
             results = wikipedia.summary(query, sentences=2)
             speck("According to Wikipedia")
             print(results)
-            print(results)
+            speck(results)
+
+
+
